@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19th Century British Homes | ESL Curriculum Design</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --primary: #2563eb;
+            --danger: #dc2626;
+            --success: #059669;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            color: #0f172a;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        /* Source Text Section */
+        .source-text {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--primary);
+        }
+
+        .source-text h2 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .source-text p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #475569;
+        }
+
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card.ordinary {
+            border-top: 6px solid var(--danger);
+        }
+
+        .card.enriched {
+            border-top: 6px solid var(--success);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-prompt { background: #e0e7ff; color: #3730a3; }
+        .badge-output { background: #f1f5f9; color: #475569; }
+        .badge-critique { background: #fee2e2; color: #991b1b; }
+
+        .section-block {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-block.prompt-block {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .qa-item {
+            margin-bottom: 1rem;
+        }
+
+        .qa-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .question {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .answer {
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            padding-left: 1rem;
+            border-left: 3px solid #cbd5e1;
+        }
+
+        .critique-box {
+            background-color: #fef2f2;
+            border: 1px solid #fca5a5;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #991b1b;
+        }
+
+        .critique-box strong {
+            color: var(--danger);
+        }
+
+        /* Takeaways Section */
+        .takeaways {
+            background-color: #0f172a;
+            color: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .takeaways h2 {
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+        }
+
+        .takeaways ul {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .takeaways li {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .takeaways li strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .takeaways li:first-child strong { color: #fca5a5; }
+        .takeaways li:last-child strong { color: #6ee7b7; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Lesson Material: 19th Century British Homes</h1>
+        <p>A Case Study in AI-Assisted ESL Curriculum Design</p>
+    </header>
+
+    <main>
+        <section class="source-text">
+            <h2>Source Text</h2>
+            <p>
+                In the 19th century, the Industrial Revolution changed British life forever. Wealthy families in cities lived in large houses filled with expensive decorations, big furniture, and colorful carpets, which they used to show off their success. In contrast, working-class families lived in tiny, cramped terraced houses, often with only one or two rooms. Despite these physical differences, both groups saw the home as a "sanctuary"—a place of safety away from the noisy, dirty cities. While wealthy families achieved comfort through material possessions, poor families found security by sitting together around a small fire. Ultimately, the true meaning of "home" as a place of family protection remained the same for both classes.
+            </p>
+        </section>
+
+        <div class="comparison-grid">
+            
+            <section class="card ordinary">
+                <h2>Part 1: The Ordinary Approach</h2>
+                
+                <div>
+                    <span class="badge badge-prompt">The Prompt</span>
+                    <div class="section-block prompt-block">
+                        "Here is a text about 19th-century British homes. Generate 5 reading comprehension questions and an answer key for my ESL class."
+                    </div>
+                </div>
+
+                <div>
+                    <span class="badge badge-output">AI Output (The "Sentence Lifting" Trap)</span>
+                    <div class="section-block">
+                        <div class="qa-item">
+                            <div class="question">1. What did wealthy families have in their rooms?</div>
+                            <div class="answer">Expensive decorations, big furniture, and colorful carpets.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">2. Where did people move during the Industrial Revolution?</div>
+                            <div class="answer">To busy cities.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">3. How many rooms did poor houses have?</div>
+                            <div class="answer">One or two rooms.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">4. How did poor families find comfort?</div>
+                            <div class="answer">By sitting together around a small fire.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">5. Did social class change the meaning of home?</div>
+                            <div class="answer">No, it was a place of safety for both groups.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="critique-box">
+                    <strong>Pedagogical Critique:</strong> These are "Right There" questions. A student can answer these by scanning the text for keywords and copying the words directly, without ever processing the concept of the Industrial Revolution or the differing definitions of "security."
+                </div>
+            </section>
+
+            <section class="card enriched">
+                <h2>Part 2: The Enriched Approach</h2>
+                
+                <div>
+                    <span class="badge badge-prompt">The Prompt</span>
+                    <div class="section-block prompt-block">
+                        "Act as an expert ESL curriculum designer. Review the text on '19th Century British Homes.' Create a 3-part worksheet that utilizes Sample-questions-from-Blooms for cognitive escalation and Critical Thinking Across The Curriculum for deep synthesis.<br><br>
+                        Create 5 questions based on Sample-questions-from-Blooms, escalating from 'Remembering' to 'Evaluating.'<br><br>
+                        CRITICAL: The model answers must be completely rephrased (B1+ level). Students must not be able to answer by 'sentence lifting' directly from the text. Require them to infer and contrast.<br><br>
+                        Based on the Discussion_Toolkit principles, add a 4th part: 3 discussion questions that connect the themes of 'home as a sanctuary' to the students' own lived experiences."
+                    </div>
+                </div>
+
+                <div>
+                    <span class="badge badge-output">AI Output (The Advanced Pedagogical Result)</span>
+                    
+                    <div class="section-block" style="margin-bottom: 1rem;">
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Part A: Bloom’s Taxonomy Questions (Synthesis & Evaluation)</h3>
+                        
+                        <div class="qa-item">
+                            <div class="question">(Understanding): Explain in your own words how the Industrial Revolution forced people to change their idea of "home."</div>
+                            <div class="answer"><strong>Model Answer:</strong> Before the revolution, homes were likely workplaces; afterwards, they became private, quiet spaces used to escape the polluted city environment.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">(Analyzing): Contrast the ways wealthy and working-class families achieved "coziness." How did their financial status dictate their method of finding security?</div>
+                            <div class="answer"><strong>Model Answer:</strong> Wealthy families used material goods to create comfort, while working-class families, lacking resources, relied on the physical closeness of family members near a fire.</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">(Evaluating): To what extent does the author suggest that social class was irrelevant to the "true meaning of home"?</div>
+                            <div class="answer"><strong>Model Answer:</strong> The author suggests class was irrelevant because, regardless of whether a house was large or tiny, it functioned as the same psychological tool for family safety.</div>
+                        </div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem;">Part B: Critical Thinking & Personalization</h3>
+                        <div class="qa-item">
+                            <div class="question">(Personalization): The text defines home as a "sanctuary." Does your own home environment function as a sanctuary from your daily stress? Why or why not?</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">(Critical Evaluation): Do you agree that "material possessions" (like the carpets in the text) are necessary to make a house a "home"?</div>
+                        </div>
+                        <div class="qa-item">
+                            <div class="question">(Idiomatic Connection): Using the target vocabulary, have you ever felt "green with envy" regarding someone else's living situation? Explain your perspective.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="takeaways">
+            <h2>Key Takeaways for Curriculum Design</h2>
+            <ul>
+                <li>
+                    <strong>The Ordinary Approach</strong>
+                    Encourages passive, superficial scanning. It tests vision, not intellect.
+                </li>
+                <li>
+                    <strong>The Enriched Approach</strong>
+                    Forces students to synthesize (rephrasing the answer in their own words), evaluate (judging the author's argument), and connect (bridging history with their personal worldview). This turns the text into a "living" debate rather than a static block of information.
+                </li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
